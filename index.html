@@ -1,0 +1,64 @@
+<div style="font-family: 'Comic Sans MS', cursive, sans-serif; text-align: center; padding: 20px; background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%); border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+  <h2 style="font-size: 2em; margin-bottom: 30px; color: #333;">🎉 Explore Your Class Resources!</h2>
+
+  <style>
+    .fun-button {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 10px;
+      border-radius: 50px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .fun-button:hover {
+      transform: scale(1.1) rotate(-1deg);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .fun-button:active::after {
+      content: '✨';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 1.5em;
+      animation: sparkle 0.5s ease;
+    }
+
+    @keyframes sparkle {
+      0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+      100% { opacity: 1; transform: scale(1.2) rotate(360deg); }
+    }
+
+    .syllabus { background-color: #9c27b0; }
+    .studios { background-color: #e91e63; }
+    .canvas { background-color: #2196f3; }
+    .resources { background-color: #4caf50; }
+
+    .fun-button::before {
+      content: '⭐';
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%) scale(1.2);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+
+    .fun-button:hover::before {
+      left: -25px;
+      transform: translateY(-50%) scale(1.5) rotate(15deg);
+      opacity: 1;
+    }
+  </style>
+
+  <a class="fun-button syllabus" href="https://mrswattsarths.github.io/syllabus-fine-arts/" target="_blank">📘 Syllabus</a>
+  <a class="fun-button studios" href="https://sites.google.com/agora.org/found-of-art-week-activitity/home?authuser=0" target="_blank">🎨 Art Studios</a>
+  <a class="fun-button canvas" href="https://drive.google.com/drive/folders/1jfikG2YeJ1SAUriyagmzfIhimkxvgVIg" target="_blank">💻 Canvas Help</a>
+  <a class="fun-button resources" href="https://docs.google.com/presentation/d/e/2PACX-1vR09icinwtJ0FghaqzDG99frPCkZA_a5br3igh00tiQ4qJittKHcmLDsF4W10hoQopNlOP3U1evxPXi/pubembed?start=false&loop=false&delayms=3000" target="_blank">🔗 Resource Slides</a>
+</div>
