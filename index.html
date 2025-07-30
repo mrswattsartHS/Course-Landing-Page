@@ -4,137 +4,204 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mrs. Watts' Art Class Resources</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
   <style>
     /* Reset some default margin/padding */
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
-      background: #f5f0f8;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-family: 'Architects Daughter', cursive;
+      /* Animated flowing gradient background */
+      background: linear-gradient(270deg, #a0c8f0, #e0f0ff, #a0c8f0, #d0e6fa);
+      background-size: 800% 800%;
+      animation: flowGradient 20s ease infinite;
+    }
+
+    @keyframes flowGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .title-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Sparkle styles */
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #fff;
+      opacity: 0;
+      animation: sparkleFlicker 2s infinite ease-in-out;
+    }
+
+    @keyframes sparkleFlicker {
+      0%, 100% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    .fun-button {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 10px;
+      border-radius: 50px;
+      font-size: 1.5em;
+      font-weight: normal;
+      text-decoration: none;
+      color: white;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+      animation: neonPulse 2s infinite ease-in-out;
+      transition: all 1s ease;
+      position: relative;
+    }
+
+    .fun-button:hover {
+      transform: scale(1.1) rotate(-1deg);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .fun-button:active::after {
+      content: '✨';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 1.5em;
+      animation: sparkle 0.5s ease;
+    }
+
+    @keyframes neonPulse {
+      0% {
+        box-shadow: 0 0 10px 10px rgba(200, 0, 230);
+      }
+      50% {
+        box-shadow: 0 0 20px 15px rgba(100, 50, 204, 0.7);
+      }
+      100% {
+        box-shadow: 0 0 30px 10px rgba(0, 125, 255, 0.8);
+      }
+    }
+
+    .fun-button::before {
+      content: '⭐';
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%) scale(1.2);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+
+    .fun-button:hover::before {
+      left: -25px;
+      transform: translateY(-50%) scale(1.5) rotate(15deg);
+      opacity: 1;
+    }
+
+    .syllabus { background-color: #9c27b0; }
+    .studios { background-color: #e91e63; }
+    .canvas { background-color: #2196f3; }
+    .resources { background-color: #2E86C1; }
+    .vocabulary { background-color: #4CAF50; }
+    .textbook { background-color: #FF9800; }
+
+    .tooltip {
+      visibility: hidden;
+      width: 220px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8em;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .studios-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .studios-container:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: yellow;
+      animation: pop 0.6s linear;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(1) translateY(0); opacity: 1; }
+      100% { transform: scale(0.5) translateY(-20px); opacity: 0; }
+    }
+
+    /* Sparkle trail */
+    .trail {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 5px #fff;
+      pointer-events: none;
+      animation: fadeOut 0.7s linear;
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; transform: scale(0.5); }
     }
   </style>
 </head>
 <body>
   <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #EBDEF0 0%, #8E44AD 100%); border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: relative; overflow: hidden; max-width: 900px; margin: 40px auto;">
-    <h2 style="font-size: 2em; margin-bottom: 30px; color: navy;">🎉 Explore Your Art Class Resources with Mrs. Watts!</h2>
-
-    <style>
-      .fun-button {
-        display: inline-block;
-        padding: 15px 30px;
-        margin: 10px;
-        border-radius: 50px;
-        font-size: 1.2em;
-        font-weight: bold;
-        text-decoration: none;
-        color: white;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-        transition: all 0.3s ease;
-        position: relative;
-      }
-
-      .fun-button:hover {
-        transform: scale(1.1) rotate(-1deg);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-      }
-
-      .fun-button:active::after {
-        content: '✨';
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        font-size: 1.5em;
-        animation: sparkle 0.5s ease;
-      }
-
-      @keyframes sparkle {
-        0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
-        100% { opacity: 1; transform: scale(1.2) rotate(360deg); }
-      }
-
-      .fun-button::before {
-        content: '⭐';
-        position: absolute;
-        left: -15px;
-        top: 50%;
-        transform: translateY(-50%) scale(1.2);
-        opacity: 0.7;
-        transition: all 0.3s ease;
-      }
-
-      .fun-button:hover::before {
-        left: -25px;
-        transform: translateY(-50%) scale(1.5) rotate(15deg);
-        opacity: 1;
-      }
-
-      .syllabus { background-color: #9c27b0; }
-      .studios { background-color: #e91e63; }
-      .canvas { background-color: #2196f3; }
-      .resources { background-color: #2E86C1; }
-      .vocabulary { background-color: #4CAF50; } /* Green */
-      .textbook { background-color: #FF9800; }   /* Orange */
-
-      .tooltip {
-        visibility: hidden;
-        width: 220px;
-        background-color: #000;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px;
-        position: absolute;
-        z-index: 1;
-        top: -40px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 0.8em;
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-
-      .studios-container {
-        position: relative;
-        display: inline-block;
-      }
-
-      .studios-container:hover .tooltip {
-        visibility: visible;
-        opacity: 1;
-      }
-
-      .confetti {
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        background-color: yellow;
-        animation: pop 0.6s linear;
-        border-radius: 50%;
-        pointer-events: none;
-      }
-
-      @keyframes pop {
-        0% { transform: scale(1) translateY(0); opacity: 1; }
-        100% { transform: scale(0.5) translateY(-20px); opacity: 0; }
-      }
-
-      /* Sparkle trail */
-      .trail {
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        background: #fff;
-        border-radius: 50%;
-        box-shadow: 0 0 5px #fff;
-        pointer-events: none;
-        animation: fadeOut 0.7s linear;
-      }
-
-      @keyframes fadeOut {
-        to { opacity: 0; transform: scale(0.5); }
-      }
-    </style>
+    <div class="title-container">
+      <h2 style="font-size: 2em; margin-bottom: 30px; color: black;">
+        🎉 Explore Your Art Class Resources Below. Click a Button to Open the Resource.
+      </h2>
+      <!-- White Sparkles -->
+      <span class="sparkle" style="top: 5%; left: 10%; animation-delay: 0s;"></span>
+      <span class="sparkle" style="top: 15%; left: 50%; animation-delay: 0.3s;"></span>
+      <span class="sparkle" style="top: 40%; left: 70%; animation-delay: 0.6s;"></span>
+      <span class="sparkle" style="top: 60%; left: 30%; animation-delay: 1s;"></span>
+      <span class="sparkle" style="top: 75%; left: 80%; animation-delay: 1.3s;"></span>
+      <span class="sparkle" style="top: 20%; left: 20%; animation-delay: 1.5s;"></span>
+      <span class="sparkle" style="top: 50%; left: 60%; animation-delay: 1.8s;"></span>
+      <span class="sparkle" style="top: 80%; left: 40%; animation-delay: 2.1s;"></span>
+      <span class="sparkle" style="top: 10%; left: 75%; animation-delay: 2.4s;"></span>
+      <span class="sparkle" style="top: 55%; left: 15%; animation-delay: 2.7s;"></span>
+    </div>
 
     <audio id="hover-sound" src="https://cdn.pixabay.com/audio/2021/08/04/audio_788941bf19.mp3" preload="auto"></audio>
 
@@ -151,7 +218,7 @@
 
     <a class="fun-button vocabulary" href="https://drive.google.com/drive/folders/1U3xDld9DPqLmyYn3PdtRYD1KOgfC8_qT?usp=sharing" target="_blank" rel="noopener noreferrer">📚 Art Vocabulary</a>
 
-    <a class="fun-button textbook" href="https://drive.google.com/drive/folders/1U3Dld9DPqLmyYn3PdtRYD1KOgfC8_qT?usp=sharing" target="_blank" rel="noopener noreferrer">📖 Art in Focus Textbook</a>
+    <a class="fun-button textbook" href="https://drive.google.com/drive/folders/1HBNVZQw5H3sh53ZgbasN-wk-13yp9CkQ?usp=drive_link" target="_blank" rel="noopener noreferrer">📖 Textbook Resource</a>
 
     <script>
       const buttons = document.querySelectorAll('.fun-button');
